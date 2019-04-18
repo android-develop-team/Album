@@ -51,7 +51,7 @@ public class Album {
         return options;
     }
 
-    public Album setOptions(@NonNull UCrop.Options options) {
+    public Album setOptions(@Nullable UCrop.Options options) {
         this.options = options;
         return this;
     }
@@ -60,7 +60,7 @@ public class Album {
         return config;
     }
 
-    public Album setConfig(@NonNull AlbumConfig config) {
+    public Album setConfig(@Nullable AlbumConfig config) {
         this.config = config;
         return this;
     }
@@ -69,7 +69,7 @@ public class Album {
         return albumListener;
     }
 
-    public Album setAlbumListener(@NonNull AlbumListener albumListener) {
+    public Album setAlbumListener(@Nullable AlbumListener albumListener) {
         this.albumListener = albumListener;
         return this;
     }
