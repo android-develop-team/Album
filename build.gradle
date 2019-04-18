@@ -1,22 +1,19 @@
 buildscript {
-    ext.kotlin_version = '1.3.21'
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
-        classpath "guru.stefma.bintrayrelease:bintrayrelease:1.1.1"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath "guru.stefma.bintrayrelease:bintrayrelease:1.1.2"
     }
 }
 
 allprojects {
     repositories {
+        google()
         jcenter()
         maven { url "https://jitpack.io" }
-        google()
-        mavenCentral()
     }
 }
 
@@ -31,27 +28,12 @@ ext {
     projectVersionCode = 1
     projectVersionName = '1.0'
 
-    appcompatVersion = '1.1.0-alpha04'
-    viewpagerVersion = '1.0.0-alpha03'
-    materialVersion = '1.0.0'
-
-    albumCoreVersion = getMavenVersion("$rootDir/AlbumCore")
-    albumLibraryVersion = getMavenVersion("$rootDir/AlbumLibrary")
-    albumUIVersion = getMavenVersion("$rootDir/UI")
-
+    supportLibraryVersion = '28.0.0'
     glideVersion = '4.9.0'
     ucropVersion = '2.2.3'
     picassoVersion = '2.71828'
     imageloaderVersion = '1.9.5'
     frescoVersion = '1.13.0'
-    subsamplingVersion = '3.10.0'
-    photoViewVersion = '2.3.0'
 
     sampleApplicationId = 'com.album.sample'
-}
-
-static def getMavenVersion(path) {
-    Properties properties = new Properties()
-    properties.load(new FileInputStream(path + "/gradle.properties"))
-    return properties.getProperty("mavenVersion")
 }

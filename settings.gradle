@@ -1,7 +1,1 @@
-include ':AlbumCore'
-include ':AlbumLibrary'
-include ':UI'
-
-include ':app'
-include ':UIWeChat'
-include ':UIDialog'
+include ':app', ':AlbumLibrary', ':CameraViewLibrary'

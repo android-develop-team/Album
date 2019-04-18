@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorAlbumCameraBackgroundColor">#FFB0B7B7</color>
-    <color name="colorAlbumPhotoBackgroundColor">#FFFFFFFF</color>
-    <color name="colorAlbumContentViewTipsColor">#FF3D4040</color>
-    <color name="colorAlbumContentViewBackground">#FFFFFFFF</color>
-    <color name="colorAlbumContentViewCameraDrawableColor">#FF1B1D1D</color>
-    <color name="colorAlbumContentEmptyDrawableColor">#FF1B1D1D</color>
+    <!--                      DAY                     -->
+    <color name="colorAlbumStatusBarColorDay">#FF02A5D2</color>
+    <color name="colorAlbumToolbarBackgroundDay">#FF04B3E4</color>
+    <color name="colorAlbumToolbarTextColorDay">#FFFFFFFF</color>
+    <color name="colorAlbumToolbarIconColorDay">#FFFFFFFF</color>
+    <color name="colorAlbumBottomViewBackgroundDay">#FFB0B7B7</color>
+    <color name="colorAlbumBottomFinderTextColorDay">#FF3D4040</color>
+    <color name="colorAlbumBottomFinderTextDrawableColorDay">#FFFFFFFF</color>
+    <color name="colorAlbumBottomPreViewTextColorDay">#FF3D4040</color>
+    <color name="colorAlbumBottomSelectTextColorDay">#FF3D4040</color>
+    <color name="colorAlbumListPopupItemTextColorDay">#FF3D4040</color>
+    <color name="colorAlbumListPopupItemBackgroundDay">#FFFFFFFF</color>
+    <color name="colorAlbumContentViewBackgroundDay">#FFFFFFFF</color>
+    <color name="colorAlbumContentViewCameraDrawableColorDay">#FF1B1D1D</color>
+    <color name="colorAlbumContentEmptyDrawableColorDay">#FF1B1D1D</color>
+    <color name="colorAlbumContentViewTipsColorDay">#FF3D4040</color>
+    <color name="colorAlbumContentViewBackgroundColorColorDay">#FFB0B7B7</color>
+    <color name="colorAlbumPreviewBackgroundDay">#FFFFFFFF</color>
+    <color name="colorAlbumPreviewBottomViewBackgroundDay">#FFB0B7B7</color>
+    <color name="colorAlbumPreviewBottomViewOkColorDay">#FF3D4040</color>
+    <color name="colorAlbumPreviewBottomViewCountColorDay">#FF3D4040</color>
+
+    <!--                      NIGHT                     -->
+    <color name="colorAlbumStatusBarColorNight">#FF013C4D</color>
+    <color name="colorAlbumToolbarBackgroundNight">#FF014051</color>
+    <color name="colorAlbumToolbarTextColorNight">#FF707576</color>
+    <color name="colorAlbumToolbarIconColorNight">#FF707576</color>
+    <color name="colorAlbumBottomViewBackgroundNight">#FF707576</color>
+    <color name="colorAlbumBottomFinderTextDrawableColorNight">#FFD9E5E7</color>
+    <color name="colorAlbumBottomFinderTextColorNight">#FFD9E5E7</color>
+    <color name="colorAlbumBottomPreViewTextColorNight">#FFD9E5E7</color>
+    <color name="colorAlbumBottomSelectTextColorNight">#FFD9E5E7</color>
+    <color name="colorAlbumListPopupItemTextColorNight">#FFD9E5E7</color>
+    <color name="colorAlbumListPopupItemBackgroundNight">#FF3D4040</color>
+    <color name="colorAlbumContentViewBackgroundNight">#FF1B1D1D</color>
+    <color name="colorAlbumContentViewCameraDrawableColorNight">#FFFFFFFF</color>
+    <color name="colorAlbumContentEmptyDrawableColorNight">#FFFFFFFF</color>
+    <color name="colorAlbumContentViewBackgroundColorColorNight">#FF707576</color>
+    <color name="colorAlbumContentViewTipsColorNight">#FFD9E5E7</color>
+    <color name="colorAlbumPreviewBackgroundNight">#000000</color>
+    <color name="colorAlbumPreviewBottomViewBackgroundNight">#FF707576</color>
+    <color name="colorAlbumPreviewBottomViewOkColorNight">#FFD9E5E7</color>
+    <color name="colorAlbumPreviewBottomViewCountColorNight">#FFD9E5E7</color>
+
 </resources>

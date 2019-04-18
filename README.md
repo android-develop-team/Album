@@ -3,18 +3,33 @@ android album
 
 Chinese : [wiki](https://github.com/7449/Album/wiki)
 
-## version
 
-core:![](https://api.bintray.com/packages/ydevelop/maven/album.core/images/download.svg)
-library:![](https://api.bintray.com/packages/ydevelop/maven/album/images/download.svg)
-ui:![](https://api.bintray.com/packages/ydevelop/maven/album.ui/images/download.svg)
+## Screenshot
+
+
+#### multiple, radio, preview, crop, sample ui,customize camera
+
+![](https://github.com/7449/Album/blob/master/screenshot/album_multiple.png)
+![](https://github.com/7449/Album/blob/master/screenshot/album_radio.png)
+![](https://github.com/7449/Album/blob/master/screenshot/album_preview.png)
+![](https://github.com/7449/Album/blob/master/screenshot/album_crop.png)
+![](https://github.com/7449/Album/blob/master/screenshot/album_sample_ui.png)
+![](https://github.com/7449/Album/blob/master/screenshot/album_customize_camera.png)
+
 
 ## sample
+
+
+
+#### filter damaged pictures
+
+        new AlbumConfig().setFilterImg(false)
 
 #### Manifests.xml
 
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.album.ui.activity.AlbumActivity"
@@ -23,30 +38,28 @@ ui:![](https://api.bintray.com/packages/ydevelop/maven/album.ui/images/download.
             android:name="com.album.ui.activity.PreviewActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
             
-#### dependencies
+#### gradle
 
-     implementation "androidx.appcompat:appcompat:$appcompatVersion"
-     implementation "androidx.viewpager2:viewpager2:$viewpagerVersion"
-     implementation "com.ydevelop:album.ui:version"
-     implementation "com.github.yalantis:ucrop:$ucropVersion"
-     implementation "com.github.bumptech.glide:glide:$glideVersion"
-     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+     api 'com.ydevelop:album:0.0.4'
+     api "com.android.support:recyclerview-v7:$supportLibraryVersion"
+     api "com.github.bumptech.glide:glide:$glideVersion"
+     
   
-#### demo
+  If you use the built-in frame, please rely on glide
+  
+  
+    glide
+    
+#### sampleDemo
 
-    Album
-            .instance
-            .apply {
-            // album config
-            }.start(this)
-            
-## custom ui
-
-[CustomWeChat](https://github.com/android-develop-team/Album/tree/master/UIWeChat)
-
-[CustomDialog](https://github.com/android-develop-team/Album/tree/master/UIDialog)
-
-     implementation "com.ydevelop:album:version"
+        Album
+                .getInstance()
+                .setAlbumEntitys(new ArrayList<AlbumEntity>())
+                .setOptions(new UCrop.Options())
+                .setAlbumImageLoader(new SimpleAlbumImageLoader())
+                .setConfig(new AlbumConfig())
+                .setAlbumListener(new SimpleAlbumListener())
+                .start(this);
               
 ## customize camera
 
@@ -54,50 +67,223 @@ ui:![](https://api.bintray.com/packages/ydevelop/maven/album.ui/images/download.
 
 [CustomizeCamera](https://github.com/7449/Album/blob/master/app/src/main/java/com/album/sample/camera)
 
-     Album
-        .instance
-        .apply {
-            customCameraListener = object : AlbumCameraListener {
-                override fun startCamera(fragment: AlbumBaseFragment) {
-                }
-            }
-        }.start(this)
+         Album
+                .getInstance()
+                .setAlbumCameraListener(new AlbumCameraListener() {
+                      @Override
+                      public void startCamera(@NonNull Fragment fragment) {
+                      
+                           FragmentActivity activity = fragment.getActivity();
+                           Intent intent = new Intent(activity, SimpleCameraActivity.class);
+                           // AlbumConstant.CUSTOMIZE_CAMERA_RESULT_CODE
+                           fragment.startActivityForResult(intent, AlbumConstant.CUSTOMIZE_CAMERA_RESULT_CODE);
+                      }
+                })
 
 
-    finishCamera(SimpleCameraActivity.this, cameraFile.path);
+    FileUtils.finishCamera(SimpleCameraActivity.this, cameraFile.getPath());
     
-    fun finishCamera(activity: Activity, path: String) {
-        val bundle = Bundle()
-        bundle.putString(AlbumConstant.CUSTOMIZE_CAMERA_RESULT_PATH_KEY, path)
-        val intent = Intent()
-        intent.putExtras(bundle)
-        activity.setResult(RESULT_OK, intent)
-        activity.finish()
+    
+    public static void finishCamera(Activity activity, String path) {
+        Bundle bundle = new Bundle();
+        
+        //AlbumConstant.CUSTOMIZE_CAMERA_RESULT_PATH_KEY, path
+        bundle.putString(AlbumConstant.CUSTOMIZE_CAMERA_RESULT_PATH_KEY, path);
+        Intent intent = new Intent();
+        intent.putExtras(bundle);
+        activity.setResult(RESULT_OK, intent);
+        activity.finish();
     }
                 
 ## ImageLoader
 
-[SimpleFrescoAlbumImageLoader](https://github.com/7449/Album/blob/master/app/src/main/java/com/album/sample/SimpleFrescoAlbumImageLoader.kt)
+> Fresco
 
-[SimpleImageLoaderAlbumImageLoader](https://github.com/7449/Album/blob/master/app/src/main/java/com/album/sample/SimpleImageLoaderAlbumImageLoader.kt)
+    Album
+         .getInstance()
+         .setConfig(new AlbumConfig().setFrescoImageLoader(true)  // notification Album is using Fresco
+         .start(this);
 
-[SimplePicassoAlbumImageLoader](https://github.com/7449/Album/blob/master/app/src/main/java/com/album/sample/SimplePicassoAlbumImageLoader.kt)
 
 
-    class SimpleImageLoader : AlbumImageLoader {
+[SimpleFrescoAlbumImageLoader](https://github.com/7449/Album/blob/master/app/src/main/java/com/album/sample/SimpleFrescoAlbumImageLoader.java)
+
+[SimpleGlide4xAlbumImageLoader](https://github.com/7449/Album/blob/master/app/src/main/java/com/album/sample/SimpleGlide4xAlbumImageLoader.java)
+
+[SimpleImageLoaderAlbumImageLoader](https://github.com/7449/Album/blob/master/app/src/main/java/com/album/sample/SimpleImageLoaderAlbumImageLoader.java)
+
+[SimplePicassoAlbumImageLoader](https://github.com/7449/Album/blob/master/app/src/main/java/com/album/sample/SimplePicassoAlbumImageLoader.java)
+
+
+    public class SimpleImageLoader implements AlbumImageLoader {
     
-        override fun displayAlbum(view: ImageView, width: Int, height: Int, albumEntity: AlbumEntity) : View{
+        @Override
+        public void displayAlbum(@NonNull ImageView view, int width, int height, @NonNull AlbumEntity albumEntity) {
+            
+        }
+    
+        @Override
+        public void displayAlbumThumbnails(@NonNull ImageView view, @NonNull FinderEntity finderEntity) {
     
         }
     
-        override fun displayAlbumThumbnails(view: ImageView, finderEntity: FinderEntity) : View{
+        @Override
+        public void displayPreview(@NonNull ImageView view, @NonNull AlbumEntity albumEntity) {
     
         }
     
-        override fun displayPreview(view: ImageView, albumEntity: AlbumEntity) : View{
     
+        // fresco DraweeView
+        // other  null
+        @Nullable
+        @Override
+        public ImageView frescoView(@NonNull Context context, @FrescoType int type) {
+            return null;
         }
+    
     }
+
+
+## UI
+
+see: [SimpleAlbumUI](https://github.com/7449/Album/blob/master/app/src/main/java/com/album/sample/SimpleAlbumUI.java)
+
+
+## Listener
+
+see: [SimpleAlbumListener](https://github.com/7449/Album/blob/master/AlbumLibrary/src/main/java/com/album/ui/widget/SimpleAlbumListener.java)
+
+     public class AlbumListener implements AlbumListener {
+    
+            private Context context;
+            private List<AlbumEntity> list = null;
+    
+            void toast(String s) {
+                Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
+            }
+    
+            MainAlbumListener(Context context, ArrayList<AlbumEntity> list) {
+                this.context = context.getApplicationContext();
+                this.list = list;
+            }
+    
+            @Override
+            public void onAlbumActivityFinish() {
+                toast("album activity finish");
+            }
+    
+            @Override
+            public void onAlbumPermissionsDenied(@PermissionsType int type) {
+                toast("permissions error");
+            }
+    
+            @Override
+            public void onAlbumFragmentNull() {
+                toast("album fragment null");
+            }
+    
+            @Override
+            public void onAlbumPreviewFileNull() {
+                toast("preview image has been deleted");
+            }
+    
+            @Override
+            public void onAlbumFinderNull() {
+                toast("folder directory is empty");
+            }
+    
+            @Override
+            public void onAlbumBottomPreviewNull() {
+                toast("preview no image");
+            }
+    
+            @Override
+            public void onAlbumBottomSelectNull() {
+                toast("select no image");
+            }
+    
+            @Override
+            public void onAlbumFragmentFileNull() {
+                toast("album image has been deleted");
+            }
+    
+            @Override
+            public void onAlbumPreviewSelectNull() {
+                toast("PreviewActivity,  preview no image");
+            }
+    
+            @Override
+            public void onAlbumCheckBoxFileNull() {
+                toast("check box  image has been deleted");
+            }
+    
+            @Override
+            public void onAlbumFragmentCropCanceled() {
+                toast("cancel crop");
+            }
+    
+            @Override
+            public void onAlbumFragmentCameraCanceled() {
+                toast("cancel camera");
+            }
+    
+            @Override
+            public void onAlbumFragmentUCropError(@Nullable Throwable data) {
+                toast("crop error:" + data.toString());
+            }
+    
+            @Override
+            public void onAlbumResources(@NonNull List<AlbumEntity> list) {
+                
+            }
+    
+            @Override
+            public void onAlbumUCropResources(@Nullable File scannerFile) {
+                toast("crop file:" + scannerFile);
+            }
+    
+            @Override
+            public void onAlbumMaxCount() {
+                toast("select max count");
+            }
+    
+            @Override
+            public void onAlbumActivityBackPressed() {
+                toast("AlbumActivity Back");
+            }
+    
+            @Override
+            public void onAlbumOpenCameraError() {
+                toast("camera error");
+            }
+            
+            @Override
+            public void onAlbumEmpty() {
+                 toast("no image");
+            }
+            
+            @Override
+            public void onAlbumNoMore() {
+                 toast("image no more");
+            }
+            
+            @Override
+            public void onAlbumResultCameraError() {
+                 toast("result camera error");
+            }
+        }
+
+## TestPhone
+
+* onePlus3T           7.1.1
+* huawei ale-cl00        4.4.4
+* meizu mx5         5.1
+* galaxy S8+         7.0
+* hanzhong       5.1
+* xiaomi note        6.0.1
+* redmi note4 6.0
+* oppo R7c      4.4.4
+* Lenovo K30-T  4.4.4
 
 ## ProGuard
 
@@ -111,26 +297,24 @@ ui:![](https://api.bintray.com/packages/ydevelop/maven/album.ui/images/download.
     -keep class com.yalantis.ucrop** { *; }
     -keep interface com.yalantis.ucrop** { *; }
     
+ 
 ## Thanks
 
+[TouchImageView](https://github.com/MikeOrtiz/TouchImageView)
+
 [cameraview](https://github.com/google/cameraview)
+    
     
 ## MediaScannerConnection Memory leak
 
  * https://issuetracker.google.com/issues/37046656
  * https://github.com/square/leakcanary/issues/26
 
-## Screenshot
-
-#### multiple, radio, preview, crop, sample ui,customize camera
-
-![](https://github.com/7449/Album/blob/master/screenshot/album_multiple.png)
-![](https://github.com/7449/Album/blob/master/screenshot/album_radio.png)
-![](https://github.com/7449/Album/blob/master/screenshot/album_preview.png)
-![](https://github.com/7449/Album/blob/master/screenshot/album_crop.png)
-![](https://github.com/7449/Album/blob/master/screenshot/album_sample_ui.png)
-![](https://github.com/7449/Album/blob/master/screenshot/album_customize_camera.png)
 
 ## LICENSE
 
     Mozilla Public License 2.0
+
+
+
+

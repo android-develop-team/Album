@@ -1,7 +1,0 @@
-<resources>
-    <string name="album_wechat_title">图片和视频</string>
-    <string name="album_wechat_ui_title_send">发送</string>
-    <string name="album_wechat_ui_title_send_count">发送(%s/%s)</string>
-    <string name="album_wechat_ui_title_prev">预览</string>
-    <string name="album_wechat_ui_title_prev_count">预览(%s/%s)</string>
-</resources>

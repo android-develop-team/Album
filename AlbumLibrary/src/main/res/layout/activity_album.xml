@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/album_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <FrameLayout
+        android:id="@+id/album_frame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:id="@+id/album_bottom_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_bottom_height"
+        android:background="@color/colorAlbumBottomViewBackgroundDay">
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/album_tv_finder_all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/album_button_margin"
+            android:background="?android:selectableItemBackground"
+            android:drawableRight="@drawable/ic_action_album_finder_day"
+            android:gravity="right|center_vertical"
+            android:padding="@dimen/album_bottom_padding"
+            android:text="@string/album_all"
+            android:textColor="@color/colorAlbumBottomFinderTextColorDay"
+            android:textSize="@dimen/album_bottom_text_size"
+            tools:ignore="RtlHardcoded" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/album_tv_preview"
+            android:layout_width="@dimen/album_bottom_button_width"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/album_button_margin"
+            android:layout_marginRight="@dimen/album_bottom_marginRight"
+            android:layout_toLeftOf="@+id/album_tv_select"
+            android:background="?android:selectableItemBackground"
+            android:gravity="center"
+            android:padding="@dimen/album_bottom_padding"
+            android:text="@string/album_preview"
+            android:textColor="@color/colorAlbumBottomPreViewTextColorDay"
+            android:textSize="@dimen/album_bottom_text_size"
+            tools:ignore="RelativeOverlap,RtlHardcoded" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/album_tv_select"
+            android:layout_width="@dimen/album_bottom_button_width"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/album_button_margin"
+            android:background="?android:selectableItemBackground"
+            android:gravity="center"
+            android:padding="@dimen/album_bottom_padding"
+            android:text="@string/album_select"
+            android:textColor="@color/colorAlbumBottomSelectTextColorDay"
+            android:textSize="@dimen/album_bottom_text_size"
+            tools:ignore="RtlHardcoded" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

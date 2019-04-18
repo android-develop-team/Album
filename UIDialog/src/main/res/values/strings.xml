@@ -1,9 +1,0 @@
-<resources>
-    <string name="album_name">图片选择</string>
-    <string name="album_preview">预览</string>
-    <string name="album_select">选择</string>
-    <string name="album_all">全部</string>
-    <string name="preview_title">选择</string>
-    <string name="preview_select">确定</string>
-    <string name="album_preview_count">0</string>
-</resources>

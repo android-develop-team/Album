@@ -1,54 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_day_album"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:text="day" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_day_album"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="day theme" />
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_night_album"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="night" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_night_album"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="night theme and customize camera" />
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_sample_ui"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sample ui" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_open_camera"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="open camera" />
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_open_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="open camera" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_dialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="dialog" />
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_customize_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="customize camera" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_wechat_ui"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="WeChat UI" />
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="video" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_imageloader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ImageLoader" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_video"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="video" />
-
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</LinearLayout>
