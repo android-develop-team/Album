@@ -22,7 +22,7 @@ android {
         }
     }
 }
-version = "0.0.4.1"
+version = "0.0.4.2"
 group = "com.ydevelop"
 androidArtifact {
     artifactId = "album"
@@ -35,7 +35,7 @@ publish {
 }
 dependencies {
     compileOnly "com.github.yalantis:ucrop:$ucropVersion"
-    compileOnly "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
     compileOnly "com.android.support:recyclerview-v7:$supportLibraryVersion"
     compileOnly "com.github.bumptech.glide:glide:$glideVersion"
     compileOnly "com.facebook.fresco:fresco:$frescoVersion"

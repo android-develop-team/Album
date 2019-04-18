@@ -132,9 +132,6 @@ public class Album {
         if (albumImageLoader == null) {
             albumImageLoader = new SimpleGlideAlbumImageLoader();
         }
-        if (options == null) {
-            options = new UCrop.Options();
-        }
         if (albumListener == null) {
             albumListener = new SimpleAlbumListener();
         }

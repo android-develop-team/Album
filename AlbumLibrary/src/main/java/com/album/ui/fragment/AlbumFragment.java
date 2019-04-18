@@ -44,7 +44,6 @@ import com.yalantis.ucrop.UCrop;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * by y on 14/08/2017.
@@ -102,7 +101,7 @@ public class AlbumFragment extends Fragment implements
         albumPresenter = new AlbumPresenterImpl(this, albumConfig.isVideo());
 
         Drawable drawable = ContextCompat.getDrawable(albumActivity, albumConfig.getAlbumContentEmptyDrawable());
-        Objects.requireNonNull(drawable).setColorFilter(ContextCompat.getColor(albumActivity, albumConfig.getAlbumContentEmptyDrawableColor()), PorterDuff.Mode.SRC_ATOP);
+        drawable.setColorFilter(ContextCompat.getColor(albumActivity, albumConfig.getAlbumContentEmptyDrawableColor()), PorterDuff.Mode.SRC_ATOP);
         emptyView.setImageDrawable(drawable);
         emptyView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -370,6 +369,9 @@ public class AlbumFragment extends Fragment implements
 
     @Override
     public void openUCrop(String path, Uri uri) {
+        if (Album.getInstance().getOptions() == null) {
+            Album.getInstance().setOptions(new UCrop.Options());
+        }
         UCrop.of(Uri.fromFile(new File(path)), uri)
                 .withOptions(Album.getInstance().getOptions())
                 .start(albumActivity, this);
