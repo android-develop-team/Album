@@ -1,7 +1,9 @@
 plugins {
     id(Plugin.library)
+    id(Plugin.hilt)
     kotlin(Plugin.kotlin_android)
     kotlin(Plugin.kotlin_ext)
+    kotlin(Plugin.kapt)
 }
 apply(from = "../gradle/UPLOAD.gradle")
 android {
@@ -23,4 +25,6 @@ dependencies {
     compileOnly(Dep.material)
     compileOnly(Dep.uCrop)
     compileOnly(Dep.cropper)
+    compileOnly(Dep.hilt)
+    kapt(Dep.hiltCompiler)
 }

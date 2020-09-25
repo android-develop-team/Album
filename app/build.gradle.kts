@@ -1,7 +1,9 @@
 plugins {
     id(Plugin.application)
+    id(Plugin.hilt)
     kotlin(Plugin.kotlin_android)
     kotlin(Plugin.kotlin_ext)
+    kotlin(Plugin.kapt)
 }
 android {
     compileSdkVersion(Version.compileSdk)
@@ -25,4 +27,7 @@ dependencies {
     implementation(Dep.cropper)
     implementation(Dep.uCrop)
     implementation(Dep.kotlin)
+    implementation(Dep.hilt)
+    implementation(Dep.hiltVM)
+    kapt(Dep.hiltCompiler)
 }

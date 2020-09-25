@@ -1,7 +1,9 @@
 plugins {
     id(Plugin.library)
+    id(Plugin.hilt)
     kotlin(Plugin.kotlin_android)
     kotlin(Plugin.kotlin_ext)
+    kotlin(Plugin.kapt)
 }
 apply(from = "../gradle/UPLOAD.gradle")
 android {
@@ -22,4 +24,6 @@ dependencies {
     compileOnly(Dep.fragment)
     compileOnly(Dep.kotlin)
     compileOnly(Dep.viewPager2)
+    compileOnly(Dep.hilt)
+    kapt(Dep.hiltCompiler)
 }

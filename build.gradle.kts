@@ -7,6 +7,7 @@ buildscript {
         classpath(ClassPath.gradle)
         classpath(ClassPath.kotlin)
         classpath(ClassPath.bintray)
+        classpath(ClassPath.hilt)
     }
 }
 allprojects {
